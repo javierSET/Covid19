@@ -8,7 +8,7 @@
       <div class="row mb-2">
         <div class="col-sm-8">
           <h5 class="m-0 text-dark">
-            Reporte del Laboratorio Covid-19 Hospital Obreo Nº 2  hecho
+            Reporte del Laboratorio Covid-19 Hospital Obreo Nº 2 
           </h5>
         </div>
         <div class="col-sm-4">
@@ -46,9 +46,6 @@
 
                     <div class="form-group col-md-5">
                       <div class="input-group">
-
-                        
-                        
                         <label class="px-2 mt-1 font-weight-normal">Fecha Resultado: </label>                  
                         <input type="date" class="form-control col-4" id="fechaResultadoHo" value="<?php echo date("Y-m-d") ?>">                      
                         <button type="button" class="btn btn-primary px-2 ml-2" id="btnBuscarEstableFechaHo" perfilOculto="<?php echo $_SESSION['perfilUsuarioCOVID']; ?>">

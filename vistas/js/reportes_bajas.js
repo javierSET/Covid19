@@ -39,7 +39,7 @@ $(document).on("click", ".btnBajasResultadosReporte", function() {
                     '<th>N°</th>'+
                     '<th>ESTABLECIMIENTO</th>'+
                     '<th>N° BAJAS</th>'+
-                     '<th>TOTALES </th>'+
+                     '<th>TOTALES HA HOY </th>'+
                    '</tr>'+
 
                 '</thead>'+

@@ -45,9 +45,10 @@ class TablaFichas {
 		    $sql .= " OR nombre_completo Like '".$request['search']['value']."%' ";
 		    $sql .= " OR nro_documento Like '".$request['search']['value']."%' )";
 
+		    $respuesta = ControladorFichas::ctrContarFiltradoFichasLab($sql);
 		}
 
-		$respuesta = ControladorFichas::ctrContarFiltradoFichasLab($sql);
+		
 
 		//Order
 		$sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
@@ -187,8 +188,9 @@ class TablaFichas {
 		$totalData = ControladorFichas::ctrContarFichasCentro();
 		
 		$totalFilter = $totalData;
+		
+		// echo json_encode($totalData); ->fecth proba el ->fetchColumn();
 
-		// echo json_encode($totalData);
 
 		//Search
 		$sql = "";
@@ -200,20 +202,21 @@ class TablaFichas {
 		    $sql .= " OR nombre_completo Like '".$request['search']['value']."%' ";
 			$sql .= " OR resultado_laboratorio Like '".$request['search']['value']."%' ";
 		    $sql .= " OR nro_documento Like '".$request['search']['value']."%' )";
+
+
+		    $respuesta = ControladorFichas::ctrContarFiltradoFichasCentro($sql);
 		}
 
-		$respuesta = ControladorFichas::ctrContarFiltradoFichasCentro($sql);
+		
 
 		//Order
 		$sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
     	$request['start']."  ,".$request['length']."  ";
 
-echo $sql;
-die();
+
     	$fichas = ControladorFichas::ctrMostrarFichasCentro($sql);
 
   		$data = array();
-
 		for ($i = 0; $i < count($fichas); $i++) {
 
 			//$paciente = ModeloPacientesAsegurados::mdlMostrarPacientesAsegurados('pacientes_asegurados','id_ficha',$fichas[$i]['id_ficha']);

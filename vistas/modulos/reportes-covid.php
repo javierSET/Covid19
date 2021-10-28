@@ -10,7 +10,7 @@
 
           <h1 class="m-0 text-dark">
 
-            Reportes Resultados Covid-19 3
+            Reportes Resultados Covid-19
 
           </h1>
 

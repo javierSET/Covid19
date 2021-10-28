@@ -13,13 +13,17 @@ class ModeloFichas {
 
 		// devuelve el numero de registros de la vista_fichas
 
-		$sql = "SELECT * FROM $tabla";
+		$sql = "SELECT count(*) FROM $tabla";
 
 		$stmt = Conexion::conectarBDFicha()->prepare($sql);
 
-		$stmt->execute();
+		if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
-		$cuenta_col = $stmt->rowCount();
+
 
 		return $cuenta_col;
 
@@ -39,13 +43,15 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla WHERE 1 = 1 AND estado_ficha = 1";
+			$sql2 = "SELECT count(*) FROM $tabla WHERE 1 = 1 AND estado_ficha = 1";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
-
-			$cuenta_col = $stmt->rowCount();
+			if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
 			return $cuenta_col;
 
@@ -53,13 +59,15 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla WHERE 1 = 1 AND estado_ficha = 1 $sql";
+			$sql2 = "SELECT count(*) FROM $tabla WHERE 1 = 1 AND estado_ficha = 1 $sql";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
-
-			$cuenta_col = $stmt->rowCount();
+			if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
 			return $cuenta_col;
 
@@ -99,14 +107,16 @@ class ModeloFichas {
 
 		// devuelve el numero de registros de la vista_fichas
 
-		$sql = "SELECT * FROM $tabla";
+		$sql = "SELECT count(*) FROM $tabla";
 
 		$stmt = Conexion::conectarBDFicha()->prepare($sql);
-
-		$stmt->execute();
-
-		$cuenta_col = $stmt->rowCount();
-
+		
+		if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
+		
 		return $cuenta_col;
 
 		$stmt->close();
@@ -122,18 +132,22 @@ class ModeloFichas {
 
 		// devuelve el numero de registros de la vista_fichas
 
-		$sql = "SELECT * FROM $tabla where resultado_laboratorio = 'POSITIVO'";
+		$sql = "SELECT count(*) FROM $tabla where resultado_laboratorio = 'POSITIVO'";
 
 		$stmt = Conexion::conectarBDFicha()->prepare($sql);
 
-		$stmt->execute();
-
-		$cuenta_col = $stmt->rowCount();
+		if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
 		return $cuenta_col;
 
 		$stmt->close();
 		$stmt = null;
+
+		
 
 	}
 
@@ -142,13 +156,15 @@ class ModeloFichas {
 
 		// devuelve el numero de registros de la vista_seguimiento
 
-		$sql = "SELECT * FROM $tabla";
+		$sql = "SELECT count(*) FROM $tabla";
 
 		$stmt = Conexion::conectarBDFicha()->prepare($sql);
 
-		$stmt->execute();
-
-		$cuenta_col = $stmt->rowCount();
+		if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
 		return $cuenta_col;
 
@@ -169,13 +185,15 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla WHERE 1 = 1";
+			$sql2 = "SELECT count(*) FROM $tabla WHERE 1 = 1";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
-
-			$cuenta_col = $stmt->rowCount();
+			if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
 			return $cuenta_col;
 
@@ -183,15 +201,15 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla WHERE 1 = 1 $sql";
+			$sql2 = "SELECT count(*) FROM $tabla WHERE 1 = 1 $sql";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
-
-			//$varDatos = $stmt->fetchAll();
-
-			$cuenta_col = $stmt->rowCount();
+			if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
 			return $cuenta_col;
 
@@ -213,13 +231,15 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla WHERE resultado_laboratorio = 'POSITIVO'";
+			$sql2 = "SELECT count(*) FROM $tabla WHERE resultado_laboratorio = 'POSITIVO'";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
-
-			$cuenta_col = $stmt->rowCount();
+		if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
 			return $cuenta_col;
 
@@ -227,13 +247,16 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla WHERE resultado_laboratorio = 'POSITIVO' $sql";
+			$sql2 = "SELECT count(*) FROM $tabla WHERE resultado_laboratorio = 'POSITIVO' $sql";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
+			if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
-			$cuenta_col = $stmt->rowCount();
 
 			return $cuenta_col;
 
@@ -252,13 +275,16 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla";
+			$sql2 = "SELECT count(*) FROM $tabla";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
+			if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
-			$cuenta_col = $stmt->rowCount();
 
 			return $cuenta_col;
 
@@ -266,13 +292,16 @@ class ModeloFichas {
 
 			// devuelve el numero de registros de la vista_fichas
 
-			$sql2 = "SELECT * FROM $tabla WHERE 1 = 1 $sql";
+			$sql2 = "SELECT (*) FROM $tabla WHERE 1 = 1 $sql";
 
 			$stmt = Conexion::conectarBDFicha()->prepare($sql2);
 
-			$stmt->execute();
+			if($stmt->execute()){
+                    $cuenta_col = $stmt->fetchColumn();
+                }else{
+                    $cuenta_col = $stmt->errorInfo();
+                }
 
-			$cuenta_col = $stmt->rowCount();
 
 			return $cuenta_col;
 
